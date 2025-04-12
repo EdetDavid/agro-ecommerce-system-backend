@@ -1,0 +1,6 @@
+Django==5.1.7
+djangorestframework==3.15.0
+djangorestframework-simplejwt==5.5.0
+django-cors-headers==4.7.0
+paypalhttp==1.0.1
+checkout-python-sdk==0.2.0
