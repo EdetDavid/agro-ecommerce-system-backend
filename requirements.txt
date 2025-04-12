@@ -4,3 +4,6 @@ djangorestframework-simplejwt==5.5.0
 django-cors-headers==4.7.0
 paypalhttp==1.0.1
 checkout-python-sdk==0.2.0
+gunicorn==21.2.0
+Pillow==9.3.0
+psycopg2-binary==2.9.5
