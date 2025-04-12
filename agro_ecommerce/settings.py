@@ -15,60 +15,60 @@ SECRET_KEY = "django-insecure-j8kdem=sttk+kraz4zp%y-3oh^_j2kc0*+@6$eqsvv^=39m#h(
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '.vercel.app',  # Allows all Vercel deployment domains
-    '.now.sh',     # Older Vercel domains
-    # Add your production domain when ready
+    "localhost",
+    "127.0.0.1",
+    ".vercel.app",  
+    ".now.sh",  
+    ".onrender.com"
 ]
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_framework_simplejwt',
-    'corsheaders',
-    'users',
-    'products',
-    'orders',
-    'payments',
-    'reviews',
-    'logistics',
-    'notifications',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "corsheaders",
+    "users",
+    "products",
+    "orders",
+    "payments",
+    "reviews",
+    "logistics",
+    "notifications",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework.authentication.SessionAuthentication',  # Optional backup
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.SessionAuthentication",  # Optional backup
     ],
 }
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),  # Adjust as needed
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
-    'ROTATE_REFRESH_TOKENS': False,
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,
-    'AUTH_HEADER_TYPES': ('Bearer',),
-    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),  # Adjust as needed
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": False,
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": SECRET_KEY,
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
 }
 
 
@@ -76,7 +76,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = "agro_ecommerce.urls"
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = "users.User"
 
 TEMPLATES = [
     {
@@ -104,42 +104,42 @@ DATABASES = {
     }
 }
 
- CORS Settings
+#  CORS Settings
 CORS_ALLOW_ALL_ORIGINS = False  # More secure than allowing all
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",    # Default React dev server
-    "http://127.0.0.1:3000",    # Alternative localhost
-    "https://*.vercel.app",     # All Vercel deployments
-    "https://*.now.sh",         # Older Vercel deployments
+    "http://localhost:3000",  # Default React dev server
+    "http://127.0.0.1:3000",  # Alternative localhost
+    "https://*.vercel.app",  # All Vercel deployments
+    "https://*.now.sh",  # Older Vercel deployments
     # Add your production frontend URL when ready
 ]
 
 CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
 ]
 
 CORS_ALLOW_HEADERS = [
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
 ]
 
 # Optional: If you need credentials (cookies, auth headers)
 CORS_ALLOW_CREDENTIALS = True
 
 # Optional: For fine-grained control over specific paths
-CORS_URLS_REGEX = r'^/api/.*$'  # Only allow CORS on API routes
+CORS_URLS_REGEX = r"^/api/.*$"  # Only allow CORS on API routes
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -173,8 +173,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -185,8 +185,14 @@ PAYPAL_MODE = "sandbox"  # Change to "live" for production
 
 # --- PayPal Configuration ---
 PAYPAL_MODE = "sandbox"  # Change to "live" for production
-PAYPAL_CLIENT_ID = os.environ.get('AStYh1L52CgAWhblc0kIYsw3xDvjttFuTOaWE2fL6QqpQJhlJ7M058Hsi2xwsbdr_jr9HTvnzRD_97kV', "AStYh1L52CgAWhblc0kIYsw3xDvjttFuTOaWE2fL6QqpQJhlJ7M058Hsi2xwsbdr_jr9HTvnzRD_97kV") # Replace with your actual Sandbox Client ID
-PAYPAL_CLIENT_SECRET = os.environ.get('EDRFOia1IUgkPO6G0uptEjszRE8mXZmtMbQr4srKJd893iszd5USTOZimvqSq60NnQuzQFfEVUYzujxB', "EDRFOia1IUgkPO6G0uptEjszRE8mXZmtMbQr4srKJd893iszd5USTOZimvqSq60NnQuzQFfEVUYzujxB") # Replace with your actual Sandbox Secret
+PAYPAL_CLIENT_ID = os.environ.get(
+    "AStYh1L52CgAWhblc0kIYsw3xDvjttFuTOaWE2fL6QqpQJhlJ7M058Hsi2xwsbdr_jr9HTvnzRD_97kV",
+    "AStYh1L52CgAWhblc0kIYsw3xDvjttFuTOaWE2fL6QqpQJhlJ7M058Hsi2xwsbdr_jr9HTvnzRD_97kV",
+)  # Replace with your actual Sandbox Client ID
+PAYPAL_CLIENT_SECRET = os.environ.get(
+    "EDRFOia1IUgkPO6G0uptEjszRE8mXZmtMbQr4srKJd893iszd5USTOZimvqSq60NnQuzQFfEVUYzujxB",
+    "EDRFOia1IUgkPO6G0uptEjszRE8mXZmtMbQr4srKJd893iszd5USTOZimvqSq60NnQuzQFfEVUYzujxB",
+)  # Replace with your actual Sandbox Secret
 
 
 # --- End PayPal Configuration ---
