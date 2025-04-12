@@ -14,7 +14,13 @@ SECRET_KEY = "django-insecure-j8kdem=sttk+kraz4zp%y-3oh^_j2kc0*+@6$eqsvv^=39m#h(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '.vercel.app',  # Allows all Vercel deployment domains
+    '.now.sh',     # Older Vercel domains
+    # Add your production domain when ready
+]
 
 # Application definition
 
@@ -98,14 +104,15 @@ DATABASES = {
     }
 }
 
-# CORS_ORIGIN_ALLOW_ALL = True  # For development only
-
-CORS_ORIGIN_ALLOW_ALL = False  # Set this to False now
+ CORS Settings
+CORS_ALLOW_ALL_ORIGINS = False  # More secure than allowing all
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Replace with your frontend origin
-    "http://127.0.0.1:3000",  # If you use 127.0.0.1 as well
-    # Add any other frontend origins if needed for testing
-    ]
+    "http://localhost:3000",    # Default React dev server
+    "http://127.0.0.1:3000",    # Alternative localhost
+    "https://*.vercel.app",     # All Vercel deployments
+    "https://*.now.sh",         # Older Vercel deployments
+    # Add your production frontend URL when ready
+]
 
 CORS_ALLOW_METHODS = [
     'DELETE',
@@ -127,6 +134,12 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
 ]
+
+# Optional: If you need credentials (cookies, auth headers)
+CORS_ALLOW_CREDENTIALS = True
+
+# Optional: For fine-grained control over specific paths
+CORS_URLS_REGEX = r'^/api/.*$'  # Only allow CORS on API routes
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
