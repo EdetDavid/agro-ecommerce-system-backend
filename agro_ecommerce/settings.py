@@ -105,14 +105,14 @@ DATABASES = {
 }
 
 #  CORS Settings
-CORS_ALLOW_ALL_ORIGINS = False  # More secure than allowing all
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Default React dev server
-    "http://127.0.0.1:3000",  # Alternative localhost
-    "https://*.vercel.app",  # All Vercel deployments
-    "https://*.now.sh",  # Older Vercel deployments
-    # Add your production frontend URL when ready
-]
+# CORS_ALLOW_ALL_ORIGINS = False  # More secure than allowing all
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",  # Default React dev server
+#     "http://127.0.0.1:3000",  # Alternative localhost
+#     "https://*.vercel.app",  # All Vercel deployments
+#     "https://*.now.sh",  # Older Vercel deployments
+#     # Add your production frontend URL when ready
+# ]
 
 CORS_ALLOW_METHODS = [
     "DELETE",
